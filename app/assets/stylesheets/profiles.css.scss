@@ -1,0 +1,29 @@
+// Place all the styles related to the profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "foundation_and_overrides.scss";
+
+.short {
+  max-width: 300px;
+}
+
+@mixin gradient {
+background: #e1e9a0;
+background: -moz-linear-gradient(top,  #e1e9a0 0%, #eaefb5 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e1e9a0), color-stop(100%,#eaefb5));
+background: -webkit-linear-gradient(top,  #e1e9a0 0%,#eaefb5 100%);
+background: -o-linear-gradient(top,  #e1e9a0 0%,#eaefb5 100%);
+background: -ms-linear-gradient(top,  #e1e9a0 0%,#eaefb5 100%);
+background: linear-gradient(to bottom,  #e1e9a0 0%,#eaefb5 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1e9a0', endColorstr='#eaefb5',GradientType=0 );
+}
+
+.profile {
+  @include gradient;
+  border-radius: $global-radius;
+  legend {
+    border: 1px solid $fieldset-border-color;
+    padding: 10px;
+    color: $button-font-color;
+  }
+}

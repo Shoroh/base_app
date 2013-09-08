@@ -1,0 +1,20 @@
+
+p= @profile.company_name
+p= @profile.to_param
+p= @profile.company_name.to_slug.transliterate(:russian).normalize.to_s
+p= @profile.description
+p= @profile.owner_name
+p= @profile.phone_number
+p= link_to @profile.website, @profile.website
+
+ul.inline-list
+  - if @profile.twitter?
+    li
+      = link_to @profile.twitter, "http://twitter.com/#{@profile.twitter}", class: "fc-webicon twitter"
+  - if @profile.facebook?
+    li
+      = link_to @profile.facebook, "http://facebook.com/#{@profile.facebook}", class: "fc-webicon facebook"
+
+- if current_user
+  - if current_user.id == @profile.user_id
+    = link_to "Edit", edit_profile_path

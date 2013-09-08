@@ -1,0 +1,38 @@
+.row
+  .large-12
+    = form_for(@house) do |f|
+      - if @house.errors.any?
+        /#error_explanation
+        .alert-box
+          = pluralize(@house.errors.count, "error") 
+          |  prohibited this house from being saved:
+    
+      fieldset.profile
+        legend Main info about Realty
+        .row
+          .small-3.columns
+            = f.label :title, "title", class: "right inline"
+          .small-9.columns
+            = f.text_field :title, placeholder: "a better place in the world... )))", required: true
+            = render 'shared/er_message', model: @house, attribute: :title
+        .row
+          .small-3.columns
+            = f.label :description, "description", class: "right inline"
+          .small-9.columns
+            = f.text_area :description, rows: 8, placeholder: "Describe the object", required: true
+            = render 'shared/er_message', model: @house, attribute: :description
+      fieldset.profile
+        legend Price information
+        .row
+          .small-3.columns
+            = f.label :price, "price per month", class: "right inline"
+          .large-6.columns.pull-3
+            .row.collapse
+              .small-10.columns
+                = f.text_field :price, required: true, title: "###,###"
+                = render '/shared/er_message', model: @house, attribute: :price
+              .small-2.columns
+                span.postfix baht
+
+      .small-12.columns
+        = f.submit "create house", class: "button"

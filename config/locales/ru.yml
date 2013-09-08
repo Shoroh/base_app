@@ -1,0 +1,23 @@
+ru:
+  layouts:
+    application:
+      title:          "Аренда недвижимости Пхукета"
+      edit_user:      "Редактировать пользователя"
+      edit_profile:   "Профиль компании"
+      sign_out:       "Выйти"
+      sign_in:        "Войти"
+
+  profiles:
+    form:
+      profile:          "профиль"
+      contacts:         "контакты"
+      company_name:     "название"
+      company_name_p:   "Мандригал"
+      about:            "описане"
+      about_p:          "Несколько хороших слов о вашей компании."
+      owner_name:       "имя владельца"
+      owner_name_p:     "ваше имя, или вашего работника"
+      phone:            "телефон"
+      email:            "почта"
+      website:          "вебсайт"
+      update_button:    "обновить профиль"

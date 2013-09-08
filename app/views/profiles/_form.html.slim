@@ -1,0 +1,66 @@
+.row
+  .large-12.columns
+    = form_for(@profile, data: {abide: ""}) do |f|
+      - if @profile.errors.any?
+        /#error_explanation
+        .alert-box
+          = pluralize(@profile.errors.count, "error") 
+          |  prohibited this profile from being saved:
+    
+      fieldset.profile
+        legend = t('.profile')
+        .row
+          .small-5.columns.large-3
+            = f.label :company_name, "#{t('.company_name')}", class: "right inline"
+          .small-7.columns.large-9
+            = f.text_field :company_name, placeholder: "#{t('.company_name_p')}"
+            = render 'shared/er_message', model: @profile, attribute: :company_name
+        .row
+          .small-5.columns.large-3
+            = f.label :description, "#{t('.about')}", class: "right inline"
+          .small-7.columns.large-9
+            = f.text_area :description, rows: 4, placeholder: "#{t('.about_p')}"
+            = render 'shared/er_message', model: @profile, attribute: :description
+        .row
+          .small-5.columns.large-3
+            = f.label :owner_name, "#{t('.owner_name')}", class: "right inline"
+          .small-7.columns.large-9
+            = f.text_field :owner_name, rows: 8, placeholder: "#{t('.owner_name_p')}"
+            = render 'shared/er_message', model: @profile, attribute: :owner_name
+
+      fieldset.profile
+        legend = t('.contacts')
+        .row
+          .small-5.columns.large-3
+            = f.label :phone_number, "#{t('.phone')}", class: "right inline"
+          .small-7.columns.large-9
+            = f.text_field :phone_number, placeholder: "+66 86-674-1343"
+            = render 'shared/er_message', model: @profile, attribute: :phone_number
+        .row
+          .small-5.columns.large-3
+            = f.label :email, "#{t('.email')}", class: "right inline"
+          .small-7.columns.large-9
+            = f.email_field :email, placeholder: "info@mandrigal.com"
+            = render 'shared/er_message', model: @profile, attribute: :email
+        .row
+          .small-5.columns.large-3
+            = f.label :website, "#{t('.website')}", class: "right inline"
+          .small-7.columns.large-9
+            = f.url_field :website, placeholder: "http://mandrigal.com"
+            = render 'shared/er_message', model: @profile, attribute: :website
+        .row
+          .small-5.columns.large-3
+            = f.label :twitter, "twitter.com/", class: "right inline"
+          .small-7.columns.large-9
+            = f.text_field :twitter, placeholder: "mandrigal"
+            = render 'shared/er_message', model: @profile, attribute: :twitter
+        .row
+          .small-5.columns.large-3
+            = f.label :facebook, "facebook.com/", class: "right inline"
+          .small-7.columns.large-9
+            = f.text_field :facebook, placeholder: "mandrigal"
+            = render 'shared/er_message', model: @profile, attribute: :facebook
+
+
+      .small-12.columns
+        = f.submit "#{t('.update_button')}", class: "button"

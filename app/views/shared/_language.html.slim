@@ -1,0 +1,9 @@
+- case I18n.locale.to_s
+  - when "en"
+  dl.sub-nav
+    dd.active = link_to "ENG", ""
+    dd = link_to "RUS", lang_change_path, method: 'post'
+  - when "ru"
+  dl.sub-nav
+    dd = link_to "ENG", lang_change_path, method: 'post'
+    dd.active  = link_to "RUS", ""

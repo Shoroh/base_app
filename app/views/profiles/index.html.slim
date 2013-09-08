@@ -1,0 +1,13 @@
+h1 Listing profiles
+
+table
+  tr
+    th
+    th
+    th
+
+  - @profiles.each do |profile|
+    tr
+      td = profile.company_name
+    tr
+      td = link_to 'Show', profile
