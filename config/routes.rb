@@ -8,8 +8,9 @@ Rent::Application.routes.draw do
 
     devise_for :users
     resources :houses
-    resources :profiles, only: [:create, :edit, :update, :show, :index]
+    resources :profiles
     post 'lang_change', to: 'application#lang_change'
+    get "/profile", to: 'profiles#show_profile'
     
   end
 

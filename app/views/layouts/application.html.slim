@@ -33,7 +33,7 @@ body
             a href='#'
               span Menu
 
-        section.top-bar-section
+        .section.top-bar-section
           ul.right
             li.divider.hide-for-small
             - if current_user
@@ -44,7 +44,10 @@ body
                   li
                     = link_to "#{t('.edit_user')}", edit_user_registration_path
                   li
-                    = link_to "#{t('.edit_profile')}", edit_profile_path(current_user.profile.url)
+                    - if current_user.profile.url?
+                      = link_to "#{t('.edit_profile')}", edit_profile_path(current_user.profile.url)
+                    - else
+                      = link_to "#{t('.edit_profile')}", edit_profile_path(current_user.profile.id)
                   li
                     = link_to "#{t('.sign_out')}", destroy_user_session_path, method: :delete
             - else
