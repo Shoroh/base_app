@@ -9,7 +9,7 @@ class Profile < ActiveRecord::Base
   
 
   def to_param
-    if company_name == "" || company_name == company_name.nil?
+    if url == "" || url == url.nil?
       id
     else
       url
@@ -19,7 +19,7 @@ class Profile < ActiveRecord::Base
   private
 
   def company_name_transliterate
-    if company_name?
+    if !company_name.nil?
       self.url = company_name.to_slug.transliterate(:russian).normalize.to_s
     else
       self.url = ""

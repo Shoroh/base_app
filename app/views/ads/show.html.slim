@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @ad.title
+p
+  strong Description:
+  = @ad.description
+p
+  strong Price:
+  = @ad.price
+
+= link_to 'Edit', edit_ad_path(@ad)
+'|
+= link_to 'Back', ads_path

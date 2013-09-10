@@ -1,11 +1,13 @@
 Rent::Application.routes.draw do
 
+
   #get 'profile', to: "profiles#edit"
 
 
   scope '(:locale)' do
     root "houses#index"
 
+    resources :ads
     devise_for :users
     resources :houses
     resources :profiles
